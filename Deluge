@@ -1,0 +1,28 @@
+// Trigger: on user input of text field 
+if(input.imagine_image_text != null)
+{
+	// Setup Headers
+	headers = Map();
+	headers.put("Content-Type","application/json");
+	headers.put("Authorization","Bearer YOUR-API-KEY");
+	headers.put("OpenAI-Organization","YOUR-ORGANISATION-ID");
+	data = Map();
+	data.put("prompt",input.Create_image);
+	data.put("size","512x512");
+	//data.put("messages",{{"role":"user","content":input.Text_Input}});
+	// invoke url
+	response = invokeurl
+	[
+		url :"https://api.openai.com/v1/images/generations"
+		type :POST
+		parameters:data.toString()
+		headers:headers
+	];
+	// Extract ChatGPT response
+	data = response.getJSON("data");
+	url = data.getJSON("url");
+	input.Image_URL = url;
+}
+// Trigger: on user input of image URL field
+Image_link = input.Image_URL;
+input.Display_Image = "<img height=’512′ width=’512′ src='" + Image_link + "'/>";
