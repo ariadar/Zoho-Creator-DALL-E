@@ -9,7 +9,7 @@ if(input.imagine_image_text != null)
 	data = Map();
 	data.put("prompt",input.Create_image);
 	data.put("size","512x512");
-	//data.put("messages",{{"role":"user","content":input.Text_Input}});
+	//data.put("messages",{{"role":"user","content":input.imagine_image_text}});
 	// invoke url
 	response = invokeurl
 	[
