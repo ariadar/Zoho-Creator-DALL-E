@@ -7,9 +7,8 @@ if(input.imagine_image_text != null)
 	headers.put("Authorization","Bearer YOUR-API-KEY");
 	headers.put("OpenAI-Organization","YOUR-ORGANISATION-ID");
 	data = Map();
-	data.put("prompt",input.Create_image);
+	data.put("prompt",input.imagine_image_text);
 	data.put("size","512x512");
-	//data.put("messages",{{"role":"user","content":input.imagine_image_text}});
 	// invoke url
 	response = invokeurl
 	[
